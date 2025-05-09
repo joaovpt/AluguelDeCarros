@@ -2,13 +2,11 @@ package com.estudos.AluguelDeCarros.entity;
 
 import com.estudos.AluguelDeCarros.enums.StatusAluguel;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_aluguel")
@@ -29,13 +27,12 @@ public class Aluguel {
     @JoinColumn(name = "carro_id")
     private Carro carro;
 
-    @NotNull
-    private LocalDate data_inicio;
+    private LocalDateTime dataInicio;
 
-    @NotNull
-    @Future
-    private LocalDate data_fim;
+    private LocalDateTime dataFim;
 
     @Enumerated(EnumType.STRING)
     private StatusAluguel statusAluguel = StatusAluguel.ATIVO;
+
+
 }

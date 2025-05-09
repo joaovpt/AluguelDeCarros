@@ -25,20 +25,13 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(min = 3, max = 100)
     private String nome;
 
-    @CPF
-    @NotBlank
     @Column(unique = true)
     private String cpf;
 
-    @Pattern(regexp = "\\(\\d{2}\\) \\d{4,5}-\\d{4}", message = "Formato do telefone inválido")
     private String telefone;
 
-    @Email
-    @NotBlank
     private String email;
 
     @OneToMany(mappedBy = "cliente")
